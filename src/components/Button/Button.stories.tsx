@@ -75,36 +75,3 @@ export const DangerDisabled: Story = {
     disabled: true,
   },
 };
-
-// Different button types
-export const SubmitButton: Story = {
-  args: {
-    variant: "primary",
-    type: "submit",
-    children: "Submit Form",
-  },
-};
-
-export const ResetButton: Story = {
-  args: {
-    variant: "secondary",
-    type: "reset",
-    children: "Reset Form",
-  },
-};
-
-// Long text example
-export const LongText: Story = {
-  args: {
-    variant: "primary",
-    children: "This is a button with very long text content",
-  },
-};
-
-// Small text example
-export const SmallText: Story = {
-  args: {
-    variant: "primary",
-    children: "OK",
-  },
-};

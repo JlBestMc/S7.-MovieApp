@@ -6,6 +6,7 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  styles?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,12 +15,16 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   disabled = false,
   type = "button",
+  styles = "",
 }) => {
-  const baseClasses = "px-4 py-2 rounded font-medium transition-colors";
+  const baseClasses =
+    "px-4 py-2 rounded-full font-semibold transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-offset-2";
 
   const variantClasses = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 disabled:bg-blue-300",
-    secondary: "bg-gray-600 text-white hover:bg-gray-700 disabled:bg-gray-300",
+    primary:
+      "bg-gradient-to-r from-blue-950 to-purple-950 text-white hover:bg-blue-700 disabled:bg-blue-300",
+    secondary:
+      "bg-gradient-to-r from-blue-950 to-purple-950 text-white disabled:bg-gray-300",
     danger: "bg-red-600 text-white hover:bg-red-700 disabled:bg-red-300",
   };
 
@@ -28,7 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseClasses} ${variantClasses[variant]}`}
+      className={`${baseClasses} ${variantClasses[variant]} ${styles}`}
     >
       {children}
     </button>
