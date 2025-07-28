@@ -1,5 +1,5 @@
-import Footer from "../features/footer/Footer";
-import Main from "../features/main/main";
+import Footer from "../../features/footer/Footer";
+import Main from "../../features/main/main";
 
 export default function WelcomePage() {
   return (
