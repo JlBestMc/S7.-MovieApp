@@ -4,6 +4,7 @@ import { fetchPopularMovies } from "../../config/tmdb";
 import MovieCard from "../../components/Card/MovieCard";
 import { useEffect, useRef } from "react";
 import type { Movie } from "../../types/movieTypes";
+import Navbar from "../../features/header/components/navbar/Navbar";
 
 export default function MoviePage() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
@@ -38,16 +39,21 @@ export default function MoviePage() {
   }, [fetchNextPage, hasNextPage]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-      {data?.pages.map((page) =>
-        page.results.map((movie: Movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))
-      )}
-      <div ref={loadMoreRef} className="h-10 col-span-full" />
-      {isFetchingNextPage && (
-        <p className="col-span-full text-center">Cargando más...</p>
-      )}
-    </div>
+    <>
+      <div className="bg-[url('@/assets/Rectangle.jpg')] bg-cover bg-fixed bg-no-repeat bg-center">
+        <Navbar />
+        <div className="grid grid-cols-2 md:grid-cols-5 md:mx-16 mx-6 gap-6 mt-8">
+          {data?.pages.map((page) =>
+            page.results.map((movie: Movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))
+          )}
+          <div ref={loadMoreRef} className="h-10 col-span-full" />
+          {isFetchingNextPage && (
+            <p className="col-span-full text-center">Cargando más...</p>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
