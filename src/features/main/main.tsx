@@ -9,10 +9,10 @@ export default function Main() {
           <img src={logodark}></img>
         </div>
         <div className="flex justify-between items-center space-x-4 gap-3 font-semibold ">
-          <a className="cursor-pointer">Movies</a>
-          <a className="cursor-pointer">TV Shows</a>
-          <a className="cursor-pointer">People</a>
-          <a className="cursor-pointer">More</a>
+          <a className="cursor-pointer hover:text-purple-900">Movies</a>
+          <a className="cursor-pointer hover:text-purple-900">TV Shows</a>
+          <a className="cursor-pointer hover:text-purple-900">People</a>
+          <a className="cursor-pointer hover:text-purple-900">More</a>
         </div>
         <div className="flex justify-between items-center space-x-3  font-semibold">
           <Button variant="primary">Login</Button>

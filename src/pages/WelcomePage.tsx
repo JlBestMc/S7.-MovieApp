@@ -1,11 +1,11 @@
-import Navbar from "../features/header/navbar/Navbar";
+import Footer from "../features/footer/Footer";
 import Main from "../features/main/main";
 
 export default function WelcomePage() {
   return (
     <div>
-      <Navbar />
       <Main></Main>
+      <Footer></Footer>
     </div>
   );
 }

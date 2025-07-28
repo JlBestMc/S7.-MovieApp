@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "danger";
+  variant?: "primary" | "secondary" | "tertiary";
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   styles?: string;
@@ -25,7 +25,8 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-gradient-to-r from-blue-950 to-purple-950 text-white hover:bg-blue-700 disabled:bg-blue-300",
     secondary:
       "bg-gradient-to-r from-blue-950 to-purple-950 text-white disabled:bg-gray-300",
-    danger: "bg-red-600 text-white hover:bg-red-700 disabled:bg-red-300",
+    tertiary:
+      "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] font-bold  hover:bg-white text-lg hover:text-black disabled:bg-red-300",
   };
 
   return (
