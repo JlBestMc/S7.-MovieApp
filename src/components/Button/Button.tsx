@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary" | "quaternary";
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   styles?: string;
@@ -22,11 +22,13 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantClasses = {
     primary:
-      "bg-gradient-to-r from-blue-950 to-purple-950 text-white hover:bg-blue-700 disabled:bg-blue-300",
+      "bg-gradient-to-r from-blue-950 to-purple-950 text-white hover:from-transparent hover:to-transparent hover:border-purple-900 border-purple-900 border",
     secondary:
-      "bg-gradient-to-r from-blue-950 to-purple-950 text-white disabled:bg-gray-300",
+      "bg-gradient-to-r from-blue-950 to-purple-950 text-white hover:from-transparent hover:to-transparent hover:border-purple-900 border-purple-900 border",
     tertiary:
-      "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] font-bold  hover:bg-white text-lg hover:text-black disabled:bg-red-300",
+      "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] font-bold text-lg text-white hover:text-black",
+    quaternary:
+      "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] text-white hover:from-transparent hover:to-transparent hover:border-cyan-300 border-[#0d253f] border",
   };
 
   return (

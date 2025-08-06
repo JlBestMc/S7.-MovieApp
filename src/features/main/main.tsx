@@ -18,7 +18,7 @@ export default function Main() {
           <Button styles="px-16" variant="primary">
             Login
           </Button>
-          <Button styles="px-14 bg-black" variant="secondary">
+          <Button styles="px-14 bg-black" variant="primary">
             Register
           </Button>
         </div>
