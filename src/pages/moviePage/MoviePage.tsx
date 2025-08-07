@@ -5,7 +5,7 @@ import MovieCard from "../../components/Card/MovieCard";
 import { useEffect, useRef } from "react";
 import type { Movie } from "../../types/movieTypes";
 import Navbar from "../../features/header/components/navbar/Navbar";
-import logo from "../../assets/logo.svg";
+import logo2 from "../../assets/logo2.svg";
 
 export default function MoviePage() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
@@ -45,7 +45,7 @@ export default function MoviePage() {
         <Navbar
           bgColor="bg-[#0d253f]"
           aStyles="cursor-pointer hover:text-cyan-300 text-white"
-          logo={logo}
+          logo={logo2}
           borderColor="border-white"
           variantButton="quaternary"
         />
