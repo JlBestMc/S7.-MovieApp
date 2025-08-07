@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "secondary", "tertiary"],
+      options: ["primary", "secondary", "tertiary", "quaternary"],
     },
     type: {
       control: "select",
@@ -48,6 +48,14 @@ export const Tertiary: Story = {
   args: {
     variant: "tertiary",
     children: "Tertiary Button",
+  },
+};
+
+// quaternary button story
+export const Quaternary: Story = {
+  args: {
+    variant: "quaternary",
+    children: "Quaternary Button",
   },
 };
 

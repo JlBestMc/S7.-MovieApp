@@ -1,12 +1,15 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
+import MoviePage from "./MoviePage";
 
 const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+export default {
+  title: "Pages/MoviePage",
+  component: MoviePage,
+};
+
+export const Default = () => (
   <QueryClientProvider client={queryClient}>
-    <App />
+    <MoviePage />
   </QueryClientProvider>
 );

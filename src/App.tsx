@@ -1,11 +1,11 @@
-import axios from "axios";
+import MoviePage from "./pages/moviePage/MoviePage";
 
-axios
-  .get("https://api.themoviedb.org/3/movie/popular", {
-    params: {
-      api_key: import.meta.env.VITE_TMDB_API_KEY,
-    },
-  })
-  .then((res) => {
-    console.log(res.data.results);
-  });
+function App() {
+  return (
+    <div>
+      <MoviePage />
+    </div>
+  );
+}
+
+export default App;
