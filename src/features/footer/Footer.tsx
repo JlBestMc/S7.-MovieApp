@@ -1,14 +1,23 @@
 import logoXL from "@/assets/logo-lg.svg";
 import Button from "../../components/Button/Button";
+import { useAuth } from "../../auth/hooks/useAuth";
 
 export const Footer: React.FC = () => {
+  const { user } = useAuth();
+
   return (
     <footer className="bg-[#0d253f] text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <img src={logoXL} alt="MovieApp Logo" className="mb-8 w-32" />
-            <Button variant="tertiary">Get Started</Button>
+            <Button variant="tertiary" styles="">
+              {user ? (
+                <p>Hello, {user.displayName || user.email}</p>
+              ) : (
+                <p>Get Started</p>
+              )}
+            </Button>
           </div>
 
           <div>

@@ -1,4 +1,5 @@
 import Button from "../../../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   logo: string;
@@ -8,12 +9,15 @@ interface NavbarProps {
   variantButton?: "primary" | "secondary" | "tertiary" | "quaternary";
 }
 export default function Navbar({
+  
   logo,
   bgColor,
   aStyles,
   borderColor,
   variantButton,
-}: NavbarProps) {
+}: NavbarProps)  {
+  const navigate = useNavigate();
+  
   return (
     <>
       <div
@@ -31,8 +35,8 @@ export default function Navbar({
           <a className={aStyles}>More</a>
         </div>
         <div className="flex justify-between items-center space-x-3  font-semibold">
-          <Button variant={variantButton}>Login</Button>
-          <Button variant={variantButton}>Register</Button>
+          <Button variant={variantButton} onClick={() => navigate("/login")}>Login</Button>
+          <Button variant={variantButton} onClick={() => navigate("/register")}>Register</Button>
         </div>
       </div>
     </>
