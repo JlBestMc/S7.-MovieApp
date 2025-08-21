@@ -10,7 +10,7 @@ const meta: Meta<typeof WelcomePage> = {
     docs: {
       description: {
         component:
-          "MoviePage is a complete page component that combines the Navbar and Main content areas. It represents the main movie listing or detail page of the application.",
+          "WelcomePage is a complete page component that combines the Navbar and Main content areas. It represents the main entry point of the application.",
       },
     },
   },

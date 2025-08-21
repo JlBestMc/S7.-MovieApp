@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
     secondary:
       "bg-gradient-to-r from-blue-950 to-purple-950 text-white hover:from-transparent hover:to-transparent hover:border-purple-900 border-purple-900 border",
     tertiary:
-      "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] font-bold text-lg text-white hover:text-black",
+      "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] font-bold text-lg text-white rounded-full hover:text-black",
     quaternary:
       "bg-gradient-to-r from-[#90cea1] to-[#01b4e4] text-white hover:from-transparent hover:to-transparent hover:border-cyan-300 border-[#0d253f] border",
   };

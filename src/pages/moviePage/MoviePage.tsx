@@ -44,7 +44,7 @@ export default function MoviePage() {
       <div className="bg-[url('@/assets/Rectangle.jpg')] bg-cover bg-center h-full bg-fixed bg-no-repeat">
         <Navbar
           bgColor="bg-[#0d253f]"
-          aStyles="cursor-pointer hover:text-cyan-300 text-white"
+          aStyles="cursor-pointer hover:bg-gradient-to-r hover:from-[#90cea1] hover:to-[#01b4e4] hover:bg-clip-text hover:text-transparent text-white"
           logo={logo2}
           borderColor="border-white"
           variantButton="quaternary"
