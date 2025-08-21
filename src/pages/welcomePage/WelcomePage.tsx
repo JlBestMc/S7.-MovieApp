@@ -6,9 +6,9 @@ export default function WelcomePage() {
 
   return (
     <>
-      <div className="bg-[url('@/assets/Rectangle.jpg')] bg-cover bg-center h-dvh">
+      <div className="bg-[url('@/assets/Rectangle.jpg')] bg-cover bg-no-repeat bg-fixed bg-center h-screen">
         <Navbar
-          aStyles="cursor-pointer hover:text-purple-900"
+          aStyles="cursor-pointer hover:bg-gradient-to-r hover:from-blue-900 hover:to-purple-900 hover:bg-clip-text hover:text-transparent"
           variantButton="secondary"
           logo={logodark}
         />
