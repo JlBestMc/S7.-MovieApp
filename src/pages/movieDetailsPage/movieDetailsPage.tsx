@@ -277,44 +277,6 @@ export default function MovieDetailsPage() {
               ))}
             </div>
           </div>
-
-          {/* Movie Info Sidebar */}
-          <div className="mt-16 bg-black bg-opacity-50 p-6 rounded-lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div>
-                <h4 className="font-semibold mb-2">Status</h4>
-                <p className="text-gray-300">{movie.status}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Original Language</h4>
-                <p className="text-gray-300">
-                  {movie.original_language === "en"
-                    ? "English"
-                    : movie.original_language === "es"
-                    ? "Español"
-                    : movie.original_language === "fr"
-                    ? "Français"
-                    : movie.original_language}
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Budget</h4>
-                <p className="text-gray-300">
-                  {movie.budget > 0
-                    ? `$${movie.budget.toLocaleString()}`
-                    : "N/A"}
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Revenue</h4>
-                <p className="text-gray-300">
-                  {movie.revenue > 0
-                    ? `$${movie.revenue.toLocaleString()}`
-                    : "N/A"}
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>
