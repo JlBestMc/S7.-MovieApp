@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../features/header/components/navbar/Navbar";
 import logo2 from "../../assets/logo2.svg";
 import darklogo from "../../assets/logo-dark.svg";
+import { FirebaseError } from "firebase/app";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,30 @@ const LoginPage = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/"); // Redirige a la página principal
     } catch (err) {
-      setError("Correo o contraseña incorrectos.");
+      // Map Firebase errors to friendly messages
+      let message = "Correo o contraseña incorrectos.";
+      if (err instanceof FirebaseError) {
+        switch (err.code) {
+          case "auth/user-not-found":
+          case "auth/wrong-password":
+          case "auth/invalid-credential":
+            message = "Correo o contraseña incorrectos.";
+            break;
+          case "auth/invalid-email":
+            message = "El correo no es válido.";
+            break;
+          case "auth/user-disabled":
+            message = "Esta cuenta ha sido deshabilitada.";
+            break;
+          case "auth/too-many-requests":
+            message = "Demasiados intentos. Intenta más tarde.";
+            break;
+          default:
+            message = err.message || message;
+        }
+      }
+      console.error("Login error:", err);
+      setError(message);
     }
   };
 
@@ -33,7 +57,25 @@ const LoginPage = () => {
       await signInWithPopup(auth, googleProvider);
       navigate("/");
     } catch (err) {
-      setError("Error al iniciar sesión con Google.");
+      // Map Firebase errors to friendly messages
+      let message = "Error al iniciar sesión con Google.";
+      if (err instanceof FirebaseError) {
+        switch (err.code) {
+          case "auth/popup-closed-by-user":
+            message = "Ventana de Google cerrada por el usuario.";
+            break;
+          case "auth/popup-blocked":
+            message = "Popup bloqueado. Permite popups para continuar.";
+            break;
+          case "auth/cancelled-popup-request":
+            message = "Solicitud cancelada.";
+            break;
+          default:
+            message = err.message || message;
+        }
+      }
+      console.error("Google login error:", err);
+      setError(message);
     }
   };
 
@@ -54,6 +96,7 @@ const LoginPage = () => {
                 <div className="flex items-center space-x-5 justify-center">
                   <img src={darklogo} alt="Logo" className="h-16" />
                 </div>
+                {error && <p className="text-red-500 mb-4 text-center text-sm">{error}</p>}
                 <div className="mt-5">
                   <label
                     className="font-semibold text-md text-gray-600 pb-1 block"

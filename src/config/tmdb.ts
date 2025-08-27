@@ -29,3 +29,13 @@ export async function fetchMovieDetails(id: string) {
   });
   return response.data;
 }
+
+export async function fetchMovieCredits(id: string) {
+  const response = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
+    params: {
+      api_key: API_KEY,
+      language: "es-ES",
+    },
+  });
+  return response.data;
+}
