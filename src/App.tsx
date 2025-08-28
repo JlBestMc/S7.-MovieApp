@@ -14,11 +14,9 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* pública */}
-          <Route path="/" element={<WelcomePage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          {/* protegida */}
           <Route
             path="/movies"
             element={
@@ -27,7 +25,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* detalle de película */}
           <Route
             path="/movie/:id"
             element={
@@ -36,7 +33,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* detalle de actor */}
           <Route
             path="/actor/:id"
             element={
