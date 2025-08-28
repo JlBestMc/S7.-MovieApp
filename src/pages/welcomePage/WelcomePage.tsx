@@ -1,5 +1,5 @@
 import Navbar from "../../features/header/components/navbar/Navbar";
-import Main from "../../features/main/main";
+import Main from "../../features/main/MainFeature";
 import logodark from "../../assets/logo-dark.svg";
 
 export default function WelcomePage() {

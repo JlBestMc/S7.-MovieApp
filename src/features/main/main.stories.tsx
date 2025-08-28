@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Main from "./main";
+import Main from "./MainFeature";
 
 const meta: Meta<typeof Main> = {
   title: "Features/Main",
