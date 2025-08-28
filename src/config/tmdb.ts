@@ -10,7 +10,7 @@ const api = axios.create({
   baseURL: BASE_URL,
   params: {
     api_key: API_KEY,
-    language: "es-ES",
+    language: "en-US",
   },
 });
 
@@ -32,7 +32,7 @@ export async function fetchMovieCredits(id: string) {
   const response = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
     params: {
       api_key: API_KEY,
-      language: "es-ES",
+      language: "en-US",
     },
   });
   return response.data;
