@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/loginPage/loginPage";
 import RegisterPage from "./pages/registerPage/registerPage";
 import MoviePage from "./pages/moviePage/MoviePage";
@@ -12,8 +12,10 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
+          {/* Ruta raíz y welcome */}
+          <Route path="/" element={<WelcomePage />} />
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -43,7 +45,7 @@ function App() {
           />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
