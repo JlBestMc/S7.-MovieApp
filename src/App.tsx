@@ -3,6 +3,7 @@ import LoginPage from "./pages/loginPage/loginPage";
 import RegisterPage from "./pages/registerPage/registerPage";
 import MoviePage from "./pages/moviePage/MoviePage";
 import MovieDetailPage from "./pages/movieDetailsPage/movieDetailsPage";
+import ActorDetailsPage from "./pages/actorDetailsPage/ActorDetailsPage";
 import { AuthProvider } from "./auth/context/AuthContext"; 
 import WelcomePage from "./pages/welcomePage/WelcomePage";
 import Footer from "./features/footer/Footer";
@@ -32,6 +33,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <MovieDetailPage />
+              </ProtectedRoute>
+            }
+          />
+          {/* detalle de actor */}
+          <Route
+            path="/actor/:id"
+            element={
+              <ProtectedRoute>
+                <ActorDetailsPage />
               </ProtectedRoute>
             }
           />

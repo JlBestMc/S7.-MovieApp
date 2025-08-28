@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchMovieDetails } from "@/config/tmdb";
 import Navbar from "@/features/header/components/navbar/Navbar";
 import logo2 from "@/assets/logo2.svg";
@@ -128,7 +128,7 @@ export default function MovieDetailsPage() {
     <>
       <Navbar
         bgColor="bg-[#0d253f]"
-        aStyles="cursor-pointer hover:text-cyan-300 text-white"
+        aStyles="cursor-pointer hover:bg-gradient-to-r hover:from-[#90cea1] hover:to-[#01b4e4] hover:bg-clip-text hover:text-transparent text-white"
         logo={logo2}
         borderColor="border-white"
         variantButton="quaternary"
@@ -247,16 +247,17 @@ export default function MovieDetailsPage() {
           <div className="mt-16">
             <h2 className="text-2xl font-semibold mb-6">Top Billed Cast</h2>
             <div
-              className="flex gap-4 overflow-x-auto pb-4"
+              className="flex gap-4 overflow-x-auto pb-4 pl-2 pt-2"
               style={{
                 scrollbarWidth: "thin",
                 scrollbarColor: "rgba(255, 255, 255, 0.5) transparent",
               }}
             >
               {movie.credits?.cast?.slice(0, 10).map((actor) => (
-                <div
+                <Link
                   key={actor.id}
-                  className="min-w-[150px] bg-white rounded-lg shadow-lg overflow-hidden"
+                  to={`/actor/${actor.id}`}
+                  className="min-w-[150px] bg-white rounded-xl cursor-pointer hover:scale-105 transition-transform"
                 >
                   <img
                     src={
@@ -265,7 +266,7 @@ export default function MovieDetailsPage() {
                         : "https://via.placeholder.com/185x278?text=No+Image"
                     }
                     alt={actor.name}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover rounded-xl p-0.5"
                   />
                   <div className="p-3">
                     <p className="font-semibold text-black text-sm">
@@ -273,46 +274,8 @@ export default function MovieDetailsPage() {
                     </p>
                     <p className="text-gray-600 text-xs">{actor.character}</p>
                   </div>
-                </div>
+                </Link>
               ))}
-            </div>
-          </div>
-
-          {/* Movie Info Sidebar */}
-          <div className="mt-16 bg-black bg-opacity-50 p-6 rounded-lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div>
-                <h4 className="font-semibold mb-2">Status</h4>
-                <p className="text-gray-300">{movie.status}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Original Language</h4>
-                <p className="text-gray-300">
-                  {movie.original_language === "en"
-                    ? "English"
-                    : movie.original_language === "es"
-                    ? "Español"
-                    : movie.original_language === "fr"
-                    ? "Français"
-                    : movie.original_language}
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Budget</h4>
-                <p className="text-gray-300">
-                  {movie.budget > 0
-                    ? `$${movie.budget.toLocaleString()}`
-                    : "N/A"}
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Revenue</h4>
-                <p className="text-gray-300">
-                  {movie.revenue > 0
-                    ? `$${movie.revenue.toLocaleString()}`
-                    : "N/A"}
-                </p>
-              </div>
             </div>
           </div>
         </div>
