@@ -29,10 +29,8 @@ export default function Navbar({
       <div
         className={`flex ${bgColor} flex-col md:flex-row justify-between items-center p-4 px-16 text-black-300`}
       >
-        <div className="w-32">
-          <a href="/">
-          <img src={logo}></img>
-          </a>  
+        <div className="w-32 cursor-pointer" onClick={() => navigate("/")}>
+          <img src={logo} alt="Logo" className="w-full h-auto" />
         </div>
         <div
           className={`flex justify-between items-center space-x-4 gap-3 md:my-0 my-5 font-semibold border ${borderColor} rounded-full px-12 py-2`}
