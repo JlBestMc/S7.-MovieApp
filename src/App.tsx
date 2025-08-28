@@ -1,11 +1,55 @@
-import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/loginPage/loginPage";
+import RegisterPage from "./pages/registerPage/registerPage";
+import MoviePage from "./pages/moviePage/MoviePage";
+import MovieDetailPage from "./pages/movieDetailsPage/movieDetailsPage";
+import ActorDetailsPage from "./pages/actorDetailsPage/ActorDetailsPage";
+import { AuthProvider } from "./auth/context/AuthContext"; 
+import WelcomePage from "./pages/welcomePage/WelcomePage";
+import Footer from "./features/footer/Footer";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
-axios
-  .get("https://api.themoviedb.org/3/movie/popular", {
-    params: {
-      api_key: import.meta.env.VITE_TMDB_API_KEY,
-    },
-  })
-  .then((res) => {
-    console.log(res.data.results);
-  });
+function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* pública */}
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          {/* protegida */}
+          <Route
+            path="/movies"
+            element={
+              <ProtectedRoute>
+                <MoviePage />
+              </ProtectedRoute>
+            }
+          />
+          {/* detalle de película */}
+          <Route
+            path="/movie/:id"
+            element={
+              <ProtectedRoute>
+                <MovieDetailPage />
+              </ProtectedRoute>
+            }
+          />
+          {/* detalle de actor */}
+          <Route
+            path="/actor/:id"
+            element={
+              <ProtectedRoute>
+                <ActorDetailsPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
+
+export default App;
