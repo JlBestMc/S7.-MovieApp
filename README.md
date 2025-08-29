@@ -1,69 +1,110 @@
-# React + TypeScript + Vite
+# Release: TMDB MovieApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📋 **Description**
+This major release consolidates all developed features into a complete movie discovery application. The develop branch now includes authentication, movie details, and actor information pages, providing a comprehensive TMDB-powered movie experience.
 
-Currently, two official plugins are available:
+## 🎯 **Major Features Included**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔐 **Authentication System** (PR #5)
+- **User Registration & Login**: Complete Firebase authentication integration
+- **Protected Routes**: Secure access to movie content
+- **Auth Context**: Global authentication state management
+- **Persistent Sessions**: User state maintained across browser sessions
 
-## Expanding the ESLint configuration
+### 🎬 **Movie Details Page** (PR #6)
+- **TMDB Integration**: Real-time movie data from The Movie Database
+- **Complete Movie Info**: Posters, overview, ratings, cast, and crew
+- **Responsive Design**: Optimized for all device sizes
+- **Interactive Elements**: Ratings, bookmarks, and user actions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎭 **Actor Details Page** (PR #7)
+- **Actor Profiles**: Complete biography and personal information
+- **Filmography**: Interactive movie lists with navigation
+- **Bidirectional Navigation**: Seamless movie ↔ actor transitions
+- **Responsive Layout**: Mobile-first design with horizontal scrolling
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔧 **Technical Stack**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 📚 **Core Technologies**
+- **React 18** with TypeScript for type safety
+- **Vite** for fast development and building
+- **TailwindCSS** for responsive styling
+- **React Router** for client-side navigation
+- **Firebase Auth** for authentication
+- **Axios** for API requests
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🎨 **UI/UX Components**
+- **Storybook** integration for component development
+- **Lucide Icons** for consistent iconography
+- **Custom Scrollbars** for enhanced user experience
+- **Loading States** and error handling throughout
+
+## 📂 **Project Structure**
+
+```
+src/
+├── auth/                    # Authentication system
+│   ├── context/            # Auth context and providers
+│   └── services/           # Firebase auth services
+├── components/             # Reusable UI components
+├── pages/                  # Main application pages
+│   ├── actorDetailsPage/   # 🆕 Actor information
+│   ├── movieDetailsPage/   # 🆕 Movie details
+│   ├── loginPage/          # 🆕 User authentication
+│   └── registerPage/       # 🆕 User registration
+├── config/                 # API configuration
+│   └── tmdb.ts            # 🆕 TMDB API functions
+├── routes/                 # Route protection
+└── types/                  # TypeScript definitions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 **New API Endpoints**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🎬 **Movie Services**
+- `fetchPopularMovies()` - Get trending movies
+- `fetchMovieDetails()` - Complete movie information
+- `fetchMovieCredits()` - Cast and crew data
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🎭 **Actor Services**
+- `fetchActorDetails()` - Actor biography and info
+- `fetchActorMovies()` - Actor filmography
+
+## 🎨 **User Experience Features**
+
+### 📱 **Responsive Design**
+- **Mobile-First**: Optimized for all screen sizes
+- **Flexible Layouts**: CSS Grid and Flexbox implementation
+- **Touch-Friendly**: Optimized for mobile interactions
+
+### 🎯 **Navigation Flow**
+1. **Welcome Page** → **Authentication**
+2. **Movies List** → **Movie Details**
+3. **Cast Section** → **Actor Details**
+4. **Actor Filmography** → Back to **Movie Details**
+
+### ⚡ **Performance Optimizations**
+- **Lazy Loading**: Images and components loaded on demand
+- **Parallel Requests**: Simultaneous API calls for faster loading
+- **Error Boundaries**: Graceful error handling
+- **Loading States**: Visual feedback during data fetching
+
+## 🔒 **Security Features**
+- **Protected Routes**: Authentication required for movie content
+- **Environment Variables**: Secure API key management
+- **Firebase Security**: Industry-standard authentication
+
+## 🧪 **Development Tools**
+- **TypeScript**: Full type safety across the application
+- **ESLint**: Code quality and consistency
+- **Storybook**: Component development and testing
+- **Vite**: Fast development server and building
+
+## 📱 **Supported Features**
+- ✅ User Registration and Login
+- ✅ Movie Discovery and Details
+- ✅ Actor Information and Filmography
+- ✅ Responsive Design (Mobile/Tablet/Desktop)
+- ✅ Real-time TMDB Data
+- ✅ Protected Content Access
+- ✅ Bidirectional Navigation
+- ✅ Error Handling and Loading States
